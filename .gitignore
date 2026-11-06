@@ -9,3 +9,6 @@ e2e-screenshots/
 playwright-report/
 test-results/
 *.tsbuildinfo
+
+.vercel
+.env*
