@@ -1,0 +1,2 @@
+export const copy = { en: { dashboard:'Dashboard', vehicles:'Vehicles', geofences:'Geofences', signOut:'Sign out', live:'Simulated live feed', demo:'Independent academic demo — fictional data only.' }, hi: { dashboard:'डैशबोर्ड', vehicles:'वाहन', geofences:'जियोफेंस', signOut:'साइन आउट', live:'सिम्युलेटेड लाइव फ़ीड', demo:'स्वतंत्र शैक्षणिक डेमो — केवल काल्पनिक डेटा।' } }
+export type Locale = keyof typeof copy

@@ -1,0 +1,6 @@
+import mongoose from 'mongoose'
+export const roles = ['ADMIN', 'OPERATIONS', 'VIEWER'] as const
+export const User = mongoose.model('DemoUser', new mongoose.Schema({ name: String, email: { type: String, unique: true }, password: String, role: { type: String, enum: roles } }, { timestamps: true }))
+export const Vehicle = mongoose.model('DemoVehicle', new mongoose.Schema({ registration: { type: String, unique: true }, driver: String, type: String, status: { type: String, enum: ['MOVING', 'IDLE', 'OFFLINE', 'ALERT'] }, speed: Number, fuel: Number, location: { lat: Number, lng: Number, label: String }, lastUpdated: Date, relay: { type: String, enum: ['ON', 'OFF'] } }, { timestamps: true }))
+export const Geofence = mongoose.model('DemoGeofence', new mongoose.Schema({ name: String, type: { type: String, enum: ['DEPOT', 'DELIVERY_ZONE', 'RESTRICTED'] }, center: String, radius: Number, status: { type: String, enum: ['INSIDE', 'OUTSIDE'] }, updatedAt: Date }, { timestamps: true }))
+export const RelayAudit = mongoose.model('DemoRelayAudit', new mongoose.Schema({ vehicle: { type: mongoose.Schema.Types.ObjectId, ref: 'DemoVehicle' }, actor: { type: mongoose.Schema.Types.ObjectId, ref: 'DemoUser' }, action: { type: String, enum: ['ON', 'OFF'] }, reason: String, simulated: { type: Boolean, default: true } }, { timestamps: true }))

@@ -1,0 +1,10 @@
+{
+  "name": "real-time-fleet",
+  "private": true,
+  "packageManager": "pnpm@10.13.1",
+  "scripts": {
+    "dev": "pnpm --parallel --filter fleet-api --filter fleet-web dev",
+    "build": "pnpm --filter fleet-web build",
+    "test": "pnpm --filter fleet-api test"
+  }
+}
