@@ -1,6 +1,6 @@
 import { test, expect, type Page } from '@playwright/test'
 
-const shots = '../docs/screenshots'
+const shots = '../e2e-screenshots'
 const login = async (page: Page, email = 'admin@fleet.demo') => {
   await page.goto('/login')
   await expect(page.getByRole('heading', { name: 'Demo sign in' })).toBeVisible()
